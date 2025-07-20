@@ -1,0 +1,322 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import './player.css';
+
+@layer components {
+  .goal-net {
+    background-image: repeating-linear-gradient(to right, transparent, transparent 10px, rgba(255, 255, 255, 0.2) 10px, rgba(255, 255, 255, 0.2) 11px),
+                     repeating-linear-gradient(to bottom, transparent, transparent 10px, rgba(255, 255, 255, 0.2) 10px, rgba(255, 255, 255, 0.2) 11px);
+  }
+  
+  .crowd-pattern {
+    background: repeating-linear-gradient(to right, 
+      #ff5252, #ff5252 5px,
+      #2196f3 5px, #2196f3 10px,
+      #ffeb3b 10px, #ffeb3b 15px,
+      #4caf50 15px, #4caf50 20px
+    );
+  }
+}
+
+@keyframes ballGoalLeft {
+  0% { bottom: 3rem; left: 50%; transform: translateX(-50%) rotate(0deg); }
+  100% { bottom: 20rem; left: 35%; transform: translateX(-50%) rotate(720deg); }
+}
+
+@keyframes ballGoalRight {
+  0% { bottom: 3rem; left: 50%; transform: translateX(-50%) rotate(0deg); }
+  100% { bottom: 20rem; left: 65%; transform: translateX(-50%) rotate(720deg); }
+}
+
+@keyframes ballGoalCenter {
+  0% { bottom: 3rem; left: 50%; transform: translateX(-50%) rotate(0deg); }
+  100% { bottom: 20rem; left: 50%; transform: translateX(-50%) rotate(720deg); }
+}
+
+@keyframes ballSaveLeft {
+  0% { bottom: 3rem; left: 50%; transform: translateX(-50%) rotate(0deg); }
+  50% { bottom: 12rem; left: 35%; transform: translateX(-50%) rotate(360deg); }
+  100% { bottom: 8rem; left: 35%; transform: translateX(-50%) rotate(480deg); }
+}
+
+@keyframes ballSaveRight {
+  0% { bottom: 3rem; left: 50%; transform: translateX(-50%) rotate(0deg); opacity: 1; }
+  30% { bottom: 8rem; left: 55%; transform: translateX(-50%) rotate(180deg) scale(0.9); opacity: 1; }
+  60% { bottom: 15rem; left: 65%; transform: translateX(-50%) rotate(360deg) scale(0.9); opacity: 1; }
+  100% { bottom: 18rem; left: 65%; transform: translateX(-50%) rotate(720deg) scale(0.7); opacity: 0; }
+}
+
+@keyframes ballSaveCenter {
+  0% { bottom: 3rem; transform: translateX(-50%) rotate(0deg); opacity: 1; }
+  30% { bottom: 8rem; transform: translateX(-50%) rotate(180deg) scale(0.9); opacity: 1; }
+  60% { bottom: 15rem; transform: translateX(-50%) rotate(360deg) scale(0.9); opacity: 1; }
+  100% { bottom: 18rem; transform: translateX(-50%) rotate(720deg) scale(0.7); opacity: 0; }
+}
+
+@keyframes goalKeeperSaveLeft {
+  0% { transform: translateX(-50%) rotate(0deg); }
+  100% { transform: translateX(-120px) rotate(-10deg); }
+}
+
+@keyframes goalKeeperSaveRight {
+  0% { transform: translateX(-50%) rotate(0deg); }
+  100% { transform: translateX(20px) rotate(10deg); }
+}
+
+@keyframes goalKeeperSaveCenter {
+  0% { transform: translateX(-50%) translateY(0); }
+  100% { transform: translateX(-50%) translateY(20px) scaleY(0.9); }
+}
+
+@keyframes goalKeeperWrongLeft {
+  0% { transform: translateX(-50%) rotate(0deg); }
+  100% { transform: translateX(20px) rotate(10deg); }
+}
+
+@keyframes goalKeeperWrongRight {
+  0% { transform: translateX(-50%) rotate(0deg); }
+  100% { transform: translateX(-120px) rotate(-10deg); }
+}
+
+@keyframes goalKeeperWrongCenter {
+  0% { transform: translateX(-50%) translateY(0); }
+  50% { transform: translateX(-80px) translateY(10px) rotate(-10deg); }
+  100% { transform: translateX(80px) translateY(10px) rotate(10deg); }
+}
+
+@keyframes lightFlicker {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+@keyframes flareFloat {
+  0%, 100% { transform: translate(0, 0); opacity: 0.6; }
+  25% { transform: translate(50px, 20px); opacity: 0.8; }
+  50% { transform: translate(100px, -30px); opacity: 0.4; }
+  75% { transform: translate(30px, -50px); opacity: 0.7; }
+}
+
+@keyframes ballRotate3D {
+  0% { transform: rotateX(0deg) rotateY(0deg); }
+  25% { transform: rotateX(180deg) rotateY(90deg); }
+  50% { transform: rotateX(360deg) rotateY(180deg); }
+  75% { transform: rotateX(540deg) rotateY(270deg); }
+  100% { transform: rotateX(720deg) rotateY(360deg); }
+}
+
+@keyframes ball3DGoalLeft {
+  0% { transform: translateX(-50%) translateY(0) translateZ(0) scale(1); }
+  20% { transform: translateX(-20%) translateY(-100px) translateZ(50px) scale(0.95); }
+  40% { transform: translateX(-30%) translateY(-180px) translateZ(100px) scale(0.9); }
+  100% { transform: translateX(-40%) translateY(-250px) translateZ(150px) scale(0.85); }
+}
+
+@keyframes shadowMove {
+  0% { width: 80px; transform: translateX(-50%); opacity: 0.3; }
+  100% { width: 40px; transform: translateX(-100%); opacity: 0.1; }
+}
+
+@keyframes ballShadowScale {
+  0% { transform: translateX(-50%) scale(1); opacity: 0.4; }
+  50% { transform: translateX(-50%) scale(0.5); opacity: 0.2; }
+  100% { transform: translateX(-50%) scale(0.2); opacity: 0; }
+}
+
+@keyframes goalkeeper3DSaveLeft {
+  0% { transform: translateX(-50%) translateZ(0) rotate(0deg); }
+  100% { transform: translateX(-120px) translateZ(30px) rotateY(-20deg) rotateZ(-15deg); }
+}
+
+@keyframes rainDrop {
+  0% { transform: translateY(-20px); }
+  100% { transform: translateY(100vh); }
+}
+
+@keyframes twinkle {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 1; }
+}
+
+@keyframes grassFly {
+  0% { transform: translateY(0) rotate(0deg); opacity: 0.7; }
+  100% { transform: translateY(-50px) rotate(360deg); opacity: 0; }
+}
+
+@keyframes dust {
+  0% { transform: scale(0.5); opacity: 0.7; }
+  100% { transform: scale(2); opacity: 0; }
+}
+
+@keyframes reflectionMove {
+  0%, 100% { opacity: 0.3; transform: translate(0, 0); }
+  50% { opacity: 0.5; transform: translate(5px, 5px); }
+}
+
+@keyframes ball3DGoalLeft {
+  0% { transform: translateX(-50%) translateY(0) translateZ(0) scale(1); }
+  20% { transform: translateX(-20%) translateY(-100px) translateZ(50px) scale(0.95); }
+  40% { transform: translateX(-30%) translateY(-180px) translateZ(100px) scale(0.9); }
+  100% { transform: translateX(-40%) translateY(-250px) translateZ(150px) scale(0.85); }
+}
+
+@keyframes ball3DGoalRight {
+  0% { transform: translateX(-50%) translateY(0) translateZ(0) scale(1); }
+  20% { transform: translateX(20%) translateY(-100px) translateZ(50px) scale(0.95); }
+  40% { transform: translateX(30%) translateY(-180px) translateZ(100px) scale(0.9); }
+  100% { transform: translateX(40%) translateY(-250px) translateZ(150px) scale(0.85); }
+}
+
+@keyframes ball3DGoalCenter {
+  0% { transform: translateX(-50%) translateY(0) translateZ(0) scale(1); }
+  20% { transform: translateX(-50%) translateY(-100px) translateZ(50px) scale(0.95); }
+  40% { transform: translateX(-50%) translateY(-180px) translateZ(100px) scale(0.9); }
+  100% { transform: translateX(-50%) translateY(-250px) translateZ(150px) scale(0.85); }
+}
+
+@keyframes ball3DSaveLeft {
+  0% { transform: translateX(-50%) translateY(0) translateZ(0) scale(1); }
+  20% { transform: translateX(-20%) translateY(-100px) translateZ(50px) scale(0.95); }
+  70% { transform: translateX(-30%) translateY(-180px) translateZ(100px) scale(0.9); }
+  100% { transform: translateX(-40%) translateY(-200px) translateZ(150px) scale(0.7); opacity: 0; }
+}
+
+@keyframes ball3DSaveRight {
+  0% { transform: translateX(-50%) translateY(0) translateZ(0) scale(1); }
+  20% { transform: translateX(20%) translateY(-100px) translateZ(50px) scale(0.95); }
+  70% { transform: translateX(30%) translateY(-180px) translateZ(100px) scale(0.9); }
+  100% { transform: translateX(40%) translateY(-200px) translateZ(150px) scale(0.7); opacity: 0; }
+}
+
+@keyframes ball3DSaveCenter {
+  0% { transform: translateX(-50%) translateY(0) translateZ(0) scale(1); }
+  20% { transform: translateX(-50%) translateY(-100px) translateZ(50px) scale(0.95); }
+  70% { transform: translateX(-50%) translateY(-180px) translateZ(100px) scale(0.9); }
+  100% { transform: translateX(-50%) translateY(-200px) translateZ(150px) scale(0.7); opacity: 0; }
+}
+
+@keyframes goalkeeper3DSaveLeft {
+  0% { transform: translateX(-50%) translateZ(0) rotate(0deg); }
+  100% { transform: translateX(-120px) translateZ(30px) rotateY(-20deg) rotateZ(-15deg); }
+}
+
+@keyframes goalkeeper3DSaveRight {
+  0% { transform: translateX(-50%) translateZ(0) rotate(0deg); }
+  100% { transform: translateX(60px) translateZ(30px) rotateY(20deg) rotateZ(15deg); }
+}
+
+@keyframes goalkeeper3DSaveCenter {
+  0% { transform: translateX(-50%) translateZ(0); }
+  100% { transform: translateX(-50%) translateZ(30px) scaleY(0.9); }
+}
+
+@keyframes goalkeeper3DWrongLeft {
+  0% { transform: translateX(-50%) translateZ(0) rotate(0deg); }
+  100% { transform: translateX(60px) translateZ(30px) rotateY(20deg) rotateZ(15deg); }
+}
+
+@keyframes goalkeeper3DWrongRight {
+  0% { transform: translateX(-50%) translateZ(0) rotate(0deg); }
+  100% { transform: translateX(-120px) translateZ(30px) rotateY(-20deg) rotateZ(-15deg); }
+}
+
+@keyframes goalkeeper3DWrongCenter {
+  0% { transform: translateX(-50%) translateZ(0); }
+  50% { transform: translateX(-80px) translateZ(20px) rotateZ(-10deg); }
+  100% { transform: translateX(80px) translateZ(20px) rotateZ(10deg); }
+}
+
+@keyframes ballRotate3D {
+  0% { transform: rotateX(0deg) rotateY(0deg); }
+  25% { transform: rotateX(180deg) rotateY(90deg); }
+  50% { transform: rotateX(360deg) rotateY(180deg); }
+  75% { transform: rotateX(540deg) rotateY(270deg); }
+  100% { transform: rotateX(720deg) rotateY(360deg); }
+}
+
+@keyframes shadowMove {
+  0% { width: 80px; transform: translateX(-50%); opacity: 0.3; }
+  100% { width: 40px; transform: translateX(-100%); opacity: 0.1; }
+}
+
+@keyframes ballShadowScale {
+  0% { transform: translateX(-50%) scale(1); opacity: 0.4; }
+  50% { transform: translateX(-50%) scale(0.5); opacity: 0.2; }
+  100% { transform: translateX(-50%) scale(0.2); opacity: 0; }
+}
+
+@keyframes lightFlicker {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+@keyframes flareFloat {
+  0%, 100% { transform: translate(0, 0); opacity: 0.6; }
+  25% { transform: translate(50px, 20px); opacity: 0.8; }
+  50% { transform: translate(100px, -30px); opacity: 0.4; }
+  75% { transform: translate(30px, -50px); opacity: 0.7; }
+}
+
+/* Pháo hoa */
+@keyframes firework {
+  0% { 
+    transform: translate(-50%, 60vh) scale(0.1);
+    opacity: 0;
+  }
+  5% {
+    opacity: 1;
+  }
+  20% { 
+    transform: translate(-50%, 40vh) scale(0.1);
+  }
+  30%, 100% { 
+    transform: translate(-50%, 30vh) scale(1);
+    opacity: 0;
+    box-shadow: 
+      0 0 0 var(--color),
+      0 0 4px var(--color),
+      0 0 8px var(--color),
+      0 0 12px var(--color),
+      0 0 16px var(--color),
+      0 0 20px var(--color),
+      0 0 40px var(--color),
+      0 0 60px var(--color),
+      0 0 80px var(--color),
+      0 0 100px var(--color),
+      0 0 120px var(--color);
+  }
+}
+
+.firework {
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background-color: var(--color);
+  transform-origin: center;
+  animation: firework 3s ease-out forwards;
+}
+
+.firework::before, .firework::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background-color: var(--color);
+  animation: fireworkParticles 3s ease-out forwards;
+}
+
+@keyframes fireworkParticles {
+  0% {
+    transform: translate(0, 0) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(var(--x, 0), var(--y, 0)) scale(0);
+    opacity: 0;
+  }
+}

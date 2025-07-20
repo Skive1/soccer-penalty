@@ -1,0 +1,189 @@
+/* Container cho cầu thủ */
+.player-container {
+  position: relative;
+  width: 50px;
+  height: 100px;
+}
+
+/* Đầu cầu thủ */
+.player-head {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background-color: #ffd699;
+  z-index: 2;
+  overflow: hidden;
+}
+
+/* Mặt cầu thủ */
+.player-face {
+  position: absolute;
+  bottom: 5px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 14px;
+  height: 8px;
+  border-radius: 50% 50% 0 0;
+  border-bottom: 2px solid #333;
+}
+
+/* Tóc cầu thủ */
+.player-hair {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 12px;
+  background-color: #4a3000;
+  border-radius: 50% 50% 0 0;
+}
+
+/* Thân cầu thủ */
+.player-body {
+  position: absolute;
+  top: 22px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 30px;
+  height: 35px;
+  border-radius: 8px 8px 0 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+}
+
+/* Số áo */
+.player-number {
+  color: white;
+  font-weight: bold;
+  font-size: 14px;
+  text-shadow: 0 0 2px black;
+}
+
+/* Tay cầu thủ */
+.player-arm {
+  position: absolute;
+  top: 30px;
+  width: 8px;
+  height: 28px;
+  border-radius: 4px;
+  z-index: 0;
+}
+
+/* Tay trái */
+.player-arm-left {
+  left: 6px;
+  transform: rotate(15deg);
+}
+
+/* Tay phải */
+.player-arm-right {
+  right: 6px;
+  transform: rotate(-15deg);
+}
+
+/* Chân cầu thủ */
+.player-leg {
+  position: absolute;
+  top: 55px;
+  width: 10px;
+  height: 35px;
+  z-index: 0;
+}
+
+/* Chân trái */
+.player-leg-left {
+  left: 12px;
+}
+
+/* Chân phải */
+.player-leg-right {
+  right: 12px;
+}
+
+/* Giày cầu thủ */
+.player-shoe {
+  position: absolute;
+  bottom: -5px;
+  width: 16px;
+  height: 8px;
+  border-radius: 60% 40% 50% 50%;
+  background-color: black;
+}
+
+/* Giày trái */
+.player-shoe-left {
+  left: -3px;
+  transform: rotate(-5deg);
+}
+
+/* Giày phải */
+.player-shoe-right {
+  right: -3px;
+  transform: rotate(5deg);
+}
+
+/* Cầu thủ xanh */
+.player-blue .player-body,
+.player-blue .player-arm {
+  background-color: #1a73e8;
+}
+
+.player-blue .player-leg {
+  background-color: white;
+}
+
+/* Cầu thủ đỏ */
+.player-red .player-body,
+.player-red .player-arm {
+  background-color: #e53e3e;
+}
+
+.player-red .player-leg {
+  background-color: #222;
+}
+
+/* Animation đá bóng */
+@keyframes kickBall {
+  0% {
+    transform: translateX(-50%) rotate(0deg);
+  }
+  30% {
+    transform: translateX(-50%) rotate(10deg) translateY(-10px);
+  }
+  60% {
+    transform: translateX(-50%) rotate(-5deg) translateY(0);
+  }
+  100% {
+    transform: translateX(-50%) rotate(0deg);
+  }
+}
+
+.animate-player-kick {
+  animation: kickBall 0.8s ease-out;
+}
+
+/* Animation cho chân khi đá */
+.animate-player-kick .player-leg-right {
+  animation: legKick 0.8s ease-out;
+}
+
+@keyframes legKick {
+  0% {
+    transform: rotate(0deg);
+  }
+  30% {
+    transform: rotate(45deg);
+  }
+  60% {
+    transform: rotate(-15deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
