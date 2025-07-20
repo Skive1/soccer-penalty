@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect } from 'react';
 import type { Question, Team } from './types';
 import { questions } from './data/questions';
 
