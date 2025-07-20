@@ -21,7 +21,6 @@ function App() {
   const [time, setTime] = useState('90:00');
   const [showCelebration, setShowCelebration] = useState(false);
   const [playerAnimation, setPlayerAnimation] = useState('');
-  const fieldRef = useRef<HTMLDivElement>(null);
   const MAX_ROUNDS = 5;
   const weather = Math.random() > 0.7 ? 'rain' : Math.random() > 0.5 ? 'sunny' : 'night';
   const [gameStarted, setGameStarted] = useState<boolean>(false);
