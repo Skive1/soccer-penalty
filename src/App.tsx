@@ -23,7 +23,7 @@ function App() {
   const [playerAnimation, setPlayerAnimation] = useState('');
   const fieldRef = useRef<HTMLDivElement>(null);
   const MAX_ROUNDS = 5;
-  const [weather, setWeather] = useState(Math.random() > 0.7 ? 'rain' : Math.random() > 0.5 ? 'sunny' : 'night');
+  const weather = Math.random() > 0.7 ? 'rain' : Math.random() > 0.5 ? 'sunny' : 'night';
   const [gameStarted, setGameStarted] = useState<boolean>(false);
 
   // Get a random question that hasn't been used yet
@@ -201,75 +201,6 @@ function App() {
     const minutes = Math.floor(Math.random() * 45) + 45;
     const seconds = Math.floor(Math.random() * 60);
     setTime(`${minutes}:${seconds < 10 ? '0' + seconds : seconds}`);
-  };
-
-  // CSS classes for ball
-  const ballClasses = () => {
-    if (!showResult) return '';
-    if (isCorrect) {
-      if (kickDirection === 'left') return 'animate-ball-goal-left';
-      if (kickDirection === 'right') return 'animate-ball-goal-right';
-      if (kickDirection === 'center') return 'animate-ball-goal-center';
-    } else {
-      if (kickDirection === 'left') return 'animate-ball-save-left';
-      if (kickDirection === 'right') return 'animate-ball-save-right';
-      if (kickDirection === 'center') return 'animate-ball-save-center';
-    }
-    return '';
-  };
-
-  // CSS classes cho thủ môn
-  const goalkeeperClasses = () => {
-    if (!showResult) return '';
-    
-    if (isCorrect) {
-      // Khi trả lời đúng, thủ môn đoán sai hướng (đi ngược lại hướng bóng)
-      if (kickDirection === 'left') return 'animate-goalkeeper-save-right';
-      if (kickDirection === 'right') return 'animate-goalkeeper-save-left';
-      if (kickDirection === 'center') {
-        // Khi bóng đi giữa, thủ môn ngẫu nhiên nhảy sang trái hoặc phải
-        return Math.random() > 0.5 ? 'animate-goalkeeper-save-left' : 'animate-goalkeeper-save-right';
-      }
-    } else {
-      // Khi trả lời sai, thủ môn đoán đúng hướng và bắt được bóng
-      if (kickDirection === 'left') return 'animate-goalkeeper-save-left';
-      if (kickDirection === 'right') return 'animate-goalkeeper-save-right';
-      if (kickDirection === 'center') return 'animate-goalkeeper-save-center';
-    }
-    
-    return '';
-  };
-
-  // Add rain effect
-  const renderRaindrops = () => {
-    return Array.from({ length: 50 }).map((_, i) => (
-      <div 
-        key={i}
-        className="absolute w-[1px] h-[20px] bg-blue-200/30 animate-rain"
-        style={{ 
-          left: `${Math.random() * 100}%`, 
-          animationDelay: `${Math.random() * 2}s`,
-          animationDuration: `${Math.random() * 0.5 + 0.7}s`
-        }}
-      ></div>
-    ));
-  };
-
-  // Add spotlight flashes
-  const renderSpotlights = () => {
-    return Array.from({ length: 6 }).map((_, i) => (
-      <div
-        key={i}
-        className="absolute w-40 h-40 rounded-full animate-flash"
-        style={{
-          top: `${Math.random() * 30}%`,
-          left: `${Math.random() * 80 + 10}%`,
-          background: 'radial-gradient(circle, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0) 70%)',
-          animationDelay: `${Math.random() * 5}s`,
-          animationDuration: `${Math.random() * 3 + 2}s`
-        }}
-      ></div>
-    ));
   };
 
   return (
