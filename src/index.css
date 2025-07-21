@@ -320,3 +320,62 @@
     opacity: 0;
   }
 }
+
+/* Enhanced text glow effect */
+.text-gradient-glow {
+  animation: textGlow 3s ease-in-out infinite;
+  text-shadow: 0 0 5px rgba(255,255,255,0.5);
+}
+
+@keyframes textGlow {
+  0%, 100% { text-shadow: 0 0 5px rgba(255,255,255,0.5); }
+  50% { text-shadow: 0 0 15px rgba(0,200,255,0.8); }
+}
+
+/* Button hover effects */
+button:not(:disabled) {
+  transition: all 0.3s ease-out;
+}
+
+button:not(:disabled):hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+button:not(:disabled):active {
+  transform: translateY(1px);
+}
+
+/* Shadow effects */
+.shadow-glow {
+  box-shadow: 0 0 15px 5px rgba(255,255,255,0.5);
+}
+
+.shadow-glow-orange {
+  box-shadow: 0 0 15px 5px rgba(255,165,0,0.5);
+}
+
+/* Enhanced animations for the ball */
+@keyframes ballRotate {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(720deg); }
+}
+
+@keyframes ballHover {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+  100% { transform: translateY(0); }
+}
+
+@keyframes ballShadowHover {
+  0% { transform: scale(1); opacity: 0.3; }
+  50% { transform: scale(0.8); opacity: 0.2; }
+  100% { transform: scale(1); opacity: 0.3; }
+}
+
+/* Snow animation */
+@keyframes snowDrop {
+  0% { transform: translateY(-20px) rotate(0deg); }
+  50% { transform: translateY(250px) rotate(180deg); }
+  100% { transform: translateY(500px) rotate(360deg); }
+}

@@ -18,21 +18,12 @@ export default {
         'float': 'float 6s ease-in-out infinite',
         'slide': 'slide 20s linear infinite',
         'fan-jump': 'fanJump 0.5s ease-in-out infinite',
-        'rain': 'rain 0.8s linear infinite',
-        'flash': 'flash 5s ease-in-out infinite',
-        'ball-goal-left': 'ballGoalLeft 1.2s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards',
-        'ball-goal-right': 'ballGoalRight 1.2s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards',
-        'ball-goal-center': 'ballGoalCenter 1.2s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards',
-        'ball-save-left': 'ballSaveLeft 1s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards',
-        'ball-save-right': 'ballSaveRight 1s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards',
-        'ball-save-center': 'ballSaveCenter 1s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards',
-        'goalkeeper-save-left': 'goalkeeperSaveLeft 0.5s ease-out forwards',
-        'goalkeeper-save-right': 'goalkeeperSaveRight 0.5s ease-out forwards',
-        'goalkeeper-save-center': 'goalkeeperSaveCenter 0.5s ease-out forwards',
-        'player-kick': 'playerKick 0.5s ease-out forwards',
-        'goalkeeper-catch': 'goalkeeperCatch 0.3s ease-out forwards',
+        'ballHover': 'ballHover 2s ease-in-out infinite',
+        'ballShadowHover': 'ballShadowHover 2s ease-in-out infinite',
+        'ballRotate': 'ballRotate3D 1s linear infinite',
         'fadeIn': 'fadeIn 0.5s ease-out forwards',
         'scaleIn': 'scaleIn 0.5s ease-out forwards',
+        'snowDrop': 'snowDrop 6s linear infinite',
       },
       keyframes: {
         crowdWave: {
@@ -81,64 +72,20 @@ export default {
           '50%': { transform: 'translateY(-5px)' },
           '100%': { transform: 'translateY(0)' }
         },
-        rain: {
-          '0%': { transform: 'translateY(-20px)' },
-          '100%': { transform: 'translateY(500px)' }
+        ballHover: {
+          '0%': { transform: 'translateY(0)' },
+          '50%': { transform: 'translateY(-5px)' },
+          '100%': { transform: 'translateY(0)' }
         },
-        flash: {
-          '0%': { opacity: 0 },
-          '50%': { opacity: 0.5 },
-          '100%': { opacity: 0 }
+        ballShadowHover: {
+          '0%': { transform: 'scale(1)', opacity: 0.3 },
+          '50%': { transform: 'scale(0.8)', opacity: 0.2 },
+          '100%': { transform: 'scale(1)', opacity: 0.3 }
         },
-        ballGoalLeft: {
-          '0%': { bottom: '3rem', left: '50%', transform: 'translateX(-50%) rotate(0deg)', opacity: 1 },
-          '30%': { bottom: '8rem', left: '45%', transform: 'translateX(-50%) rotate(180deg) scale(0.9)', opacity: 1 },
-          '60%': { bottom: '15rem', left: '35%', transform: 'translateX(-50%) rotate(360deg) scale(0.9)', opacity: 1 },
-          '100%': { bottom: '20rem', left: '35%', transform: 'translateX(-50%) rotate(720deg) scale(0.8)', opacity: 1 }
-        },
-        ballGoalRight: {
-          '0%': { bottom: '3rem', left: '50%', transform: 'translateX(-50%) rotate(0deg)', opacity: 1 },
-          '30%': { bottom: '8rem', left: '55%', transform: 'translateX(-50%) rotate(180deg) scale(0.9)', opacity: 1 },
-          '60%': { bottom: '15rem', left: '65%', transform: 'translateX(-50%) rotate(360deg) scale(0.9)', opacity: 1 },
-          '100%': { bottom: '20rem', left: '65%', transform: 'translateX(-50%) rotate(720deg) scale(0.8)', opacity: 1 }
-        },
-        ballGoalCenter: {
-          '0%': { bottom: '3rem', transform: 'translateX(-50%) rotate(0deg)', opacity: 1 },
-          '30%': { bottom: '8rem', transform: 'translateX(-50%) rotate(180deg) scale(0.9)', opacity: 1 },
-          '60%': { bottom: '15rem', transform: 'translateX(-50%) rotate(360deg) scale(0.9)', opacity: 1 },
-          '100%': { bottom: '20rem', transform: 'translateX(-50%) rotate(720deg) scale(0.8)', opacity: 1 }
-        },
-        ballSaveLeft: {
-          '0%': { bottom: '3rem', left: '50%', transform: 'translateX(-50%) rotate(0deg)', opacity: 1 },
-          '70%': { bottom: '15rem', left: '35%', transform: 'translateX(-50%) rotate(360deg) scale(0.9)', opacity: 1 },
-          '100%': { bottom: '18rem', left: '35%', transform: 'translateX(-50%) rotate(720deg) scale(0.7)', opacity: 0 }
-        },
-        ballSaveRight: {
-          '0%': { bottom: '3rem', left: '50%', transform: 'translateX(-50%) rotate(0deg)', opacity: 1 },
-          '70%': { bottom: '15rem', left: '65%', transform: 'translateX(-50%) rotate(360deg) scale(0.9)', opacity: 1 },
-          '100%': { bottom: '18rem', left: '65%', transform: 'translateX(-50%) rotate(720deg) scale(0.7)', opacity: 0 }
-        },
-        ballSaveCenter: {
-          '0%': { bottom: '3rem', transform: 'translateX(-50%) rotate(0deg)', opacity: 1 },
-          '70%': { bottom: '15rem', transform: 'translateX(-50%) rotate(360deg) scale(0.9)', opacity: 1 },
-          '100%': { bottom: '18rem', transform: 'translateX(-50%) rotate(720deg) scale(0.7)', opacity: 0 }
-        },
-        goalkeeperSaveLeft: {
-          '0%': { transform: 'translateX(-50%) rotate(0deg)' },
-          '100%': { transform: 'translateX(-120px) rotate(-15deg)' }
-        },
-        goalkeeperSaveRight: {
-          '0%': { transform: 'translateX(-50%) rotate(0deg)' },
-          '100%': { transform: 'translateX(20px) rotate(15deg)' }
-        },
-        goalkeeperSaveCenter: {
-          '0%': { transform: 'translateX(-50%) scaleY(1)' },
-          '100%': { transform: 'translateX(-50%) scaleY(0.8) translateY(20px)' }
-        },
-        goalkeeperCatch: {
-          '0%': { transform: 'translateX(-50%) scale(1)' },
-          '50%': { transform: 'translateX(-50%) scale(1.1)' },
-          '100%': { transform: 'translateX(-50%) scale(1)' }
+        snowDrop: {
+          '0%': { transform: 'translateY(-20px) rotate(0deg)' },
+          '50%': { transform: 'translateY(250px) rotate(180deg)' },
+          '100%': { transform: 'translateY(500px) rotate(360deg)' }
         },
         fadeIn: {
           '0%': { opacity: 0 },
@@ -148,6 +95,14 @@ export default {
           '0%': { transform: 'scale(0.9)', opacity: 0 },
           '100%': { transform: 'scale(1)', opacity: 1 }
         },
+        fireworkParticle: {
+          '0%': { transform: 'translate(0, 0)', opacity: 1 },
+          '100%': { transform: 'translate(var(--x, 0), var(--y, 0))', opacity: 0 }
+        }
+      },
+      boxShadow: {
+        'glow': '0 0 15px 5px rgba(255,255,255,0.5)',
+        'glow-orange': '0 0 15px 5px rgba(255,165,0,0.5)'
       },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
