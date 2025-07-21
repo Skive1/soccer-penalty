@@ -10,7 +10,6 @@ function App() {
 
   const [currentTeamIndex, setCurrentTeamIndex] = useState<number>(0);
   const [currentQuestion, setCurrentQuestion] = useState<Question | null>(null);
-  const [selectedOption, setSelectedOption] = useState<number | null>(null);
   const [showResult, setShowResult] = useState<boolean>(false);
   const [isCorrect, setIsCorrect] = useState<boolean>(false);
   const [kickDirection, setKickDirection] = useState<string>('');
@@ -139,7 +138,7 @@ function App() {
   const handleOptionSelect = (optionIndex: number) => {
     if (showResult) return;
 
-    setSelectedOption(optionIndex);
+
     setShowResult(true);
 
     const isAnswerCorrect = optionIndex === currentQuestion?.correctAnswer;
@@ -202,7 +201,7 @@ function App() {
       setTime(`${newMins}:${newSecs < 10 ? '0' + newSecs : newSecs}`);
     }
 
-    setSelectedOption(null);
+
     setShowResult(false);
     setKickDirection('');
     setShowNextButton(false);
@@ -216,7 +215,7 @@ function App() {
       { name: "Đội Đỏ", flag: "🟥", score: 0 }
     ]);
     setCurrentTeamIndex(0);
-    setSelectedOption(null);
+
     setShowResult(false);
     setIsCorrect(false);
     setKickDirection('');
